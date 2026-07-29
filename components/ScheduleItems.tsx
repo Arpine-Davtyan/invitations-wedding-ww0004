@@ -49,6 +49,8 @@ const ScheduleItems = () => {
                             <Image
                                 src={item.src}
                                 alt={item.name}
+                                priority={index < 2}
+                                quality={85}
                                 fill
                                 className="object-cover transition-transform duration-1000 ease-out hover:scale-110"
                             />

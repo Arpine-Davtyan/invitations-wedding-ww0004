@@ -30,7 +30,8 @@ const GalleryItems = () => {
                         src={src}
                         alt={`Gallery ${index + 1}`}
                         fill
-                        quality={100}
+                        priority={index < 2}
+                        quality={85}
                         sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                         className="gallery-image transition-transform duration-700 group-hover:scale-105"
                     />
