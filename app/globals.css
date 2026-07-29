@@ -1,26 +1,199 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #f4efe4;
+  --cream-deep: #eae2d1;
+  --green: #1c3327;
+  --dark-green: #12241b;
+  --gold: #c9ac74;
+  --sage: #7d9483;
+  --brass: #b08d4f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-green: var(--green);
+  --color-dark-green: var(--dark-green);
+  --color-gold: var(--gold);
+  --color-brass: var(--brass);
+  --color-sage: var(--sage);
+
+  --font-jost: var(--font-jost);
+  --font-fraunces: var(--font-fraunces);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+@utility section {
+  @apply min-h-screen flex-col-center px-6 py-16 sm:py-20 gap-3;
+}
+
+@utility frame-cream {
+  @apply flex-col-center border-2 border-brass/60 bg-cream;
+
+  box-shadow:
+    0 0 0 16px var(--cream),
+    0 0 0 10px var(--color-cream-deep),
+    6px 6px 0 rgba(217, 200, 168, 0.6),
+    12px 12px 25px rgba(70, 65, 50, 0.25),
+    -6px 8px 20px rgba(70, 65, 50, 0.12),
+    0 30px 60px rgba(70, 65, 50, 0.2);
+}
+
+@utility frame-green {
+  @apply flex-col-center border-2 border-brass/60 bg-dark-green;
+
+  box-shadow:
+    0 0 0 16px var(--dark-green),
+    0 0 0 10px var(--color-brass),
+    6px 6px 0 rgba(217, 200, 168, 0.6),
+    12px 12px 25px rgba(70, 65, 50, 0.25),
+    -6px 8px 20px rgba(70, 65, 50, 0.12),
+    0 30px 60px rgba(70, 65, 50, 0.2);
+}
+
+@utility form-item {
+  @apply flex flex-col gap-3;
+}
+
+@utility form-label {
+  @apply text-xs text-sage font-normal uppercase tracking-[4px];
+}
+
+@utility form-input {
+  @apply w-full py-3 font-fraunces font-light text-sm text-dark-green placeholder:text-sage border-b border-sage focus:border-brass outline-0;
+}
+
+@utility input-number {
+  @apply appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none;
+}
+
+@utility form-radio-label {
+  @apply w-full flex-col-center border border-sage text-cream px-1.5 sm:px-2 py-1 sm:py-3 text-center uppercase tracking-[2px] font-normal cursor-pointer transition duration-300;
+}
+
+@layer base {
+  h1 {
+    @apply flex flex-col text-7xl sm:text-9xl text-center font-thin font-fraunces my-10;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-5xl text-center font-light font-fraunces;
+  }
+  
+  h3 {
+    @apply text-xs text-sage font-normal text-center uppercase tracking-[4px];
+  }
+  
+  h4 {
+    @apply text-3xl text-cream font-light font-fraunces mb-2!;
+  }
+
+  h5 {
+    @apply text-xl text-gold font-fraunces italic mb-2!;
+  }
+
+  footer {
+    @apply flex-col-center bg-dark-green px-6 py-5 sm:py-10 gap-1 sm:gap-3;
+  }
+}
+
+@layer components {
+  .hero {
+    @apply relative bg-cover bg-center bg-no-repeat;
+    background-image:
+      linear-gradient(
+        rgba(20, 50, 35, 0.45),
+        rgba(20, 50, 35, 0.45)
+      ),
+      url("/images/bg.avif");
+  }
+
+  .marked-text {
+    @apply text-6xl text-gold text-center font-thin lowercase italic font-fraunces;
+  }
+
+  .countdown-item {
+    @apply flex-col-center gap-3;
+  }
+
+  .countdown-item-number {
+    @apply text-6xl font-fraunces;
+  }
+
+  .countdown-item-text {
+    @apply text-xs font-normal tracking-[4px] uppercase;
+  }
+
+  .big-text {
+    @apply text-2xl sm:text-[44px] text-dark-green font-fraunces text-center font-light leading-8 sm:leading-14;
+  }
+
+  .simple-text {
+    @apply text-xs sm:text-[16px] text-center text-dark-green/70 leading-loose;
+  }
+
+  .small-text {
+    @apply text-xs sm:text-sm text-cream/60 leading-5 sm:leading-loose;
+  }
+
+  .gallery-items {
+    @apply w-xs sm:w-3xl max-w-full grid grid-cols-2 gap-3 px-2 pb-8 sm:grid-cols-3 md:grid-cols-4 md:gap-4;
+  }
+
+  .gallery-item {
+    @apply relative w-full aspect-[3/4] overflow-hidden;
+  }
+  
+  .gallery-image {
+    @apply object-cover transition-transform duration-1000 ease-out group-hover:scale-110;
+  }
+
+  .btn-map {
+    @apply flex w-fit float-right gap-2 uppercase py-1 text-gold text-xs border-b border-gold tracking-[2px] transition duration-300 hover:text-cream hover:border-cream;
+  }
+
+  .btn {
+    @apply w-full relative bg-dark-green text-cream px-3 sm:px-4 py-2 sm:py-3 uppercase tracking-[2px] border border-dark-green font-normal cursor-pointer hover:bg-cream hover:text-dark-green overflow-hidden transition-colors duration-500;
+  }
+
+  .btn::before {
+    content: "";
+    @apply absolute inset-y-0 left-0 w-0 bg-brass;
+    transition: width 0.5s ease;
+    z-index: 0;
+  }
+
+  .btn:hover::before {
+    width: 100%;
+  }
+
+  .btn span {
+    @apply relative z-10;
+  }
+
+  .btn:hover {
+    @apply text-brass;
+  }
+
+  .btn:hover span {
+    @apply text-dark-green;
+  }
+
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-60;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream-deep);
+  color: var(--cream);
+  font-family: var(--font-jost);
 }
