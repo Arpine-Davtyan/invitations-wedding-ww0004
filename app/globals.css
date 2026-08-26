@@ -125,7 +125,7 @@
   }
 
   .countdown-item-number {
-    @apply text-6xl font-fraunces;
+    @apply text-4xl sm:text-6xl font-fraunces;
   }
 
   .countdown-item-text {
