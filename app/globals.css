@@ -149,7 +149,7 @@
   }
 
   .gallery-item {
-    @apply relative w-full aspect-[3/4] overflow-hidden;
+    @apply relative w-full aspect-3/4 overflow-hidden;
   }
   
   .gallery-image {

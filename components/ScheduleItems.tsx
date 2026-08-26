@@ -45,7 +45,7 @@ const ScheduleItems = () => {
                         variants={scheduleImageReveal}
                         className="space-y-4"
                     >
-                        <div className="relative aspect-[3/2] overflow-hidden">
+                        <div className="relative aspect-3/2 overflow-hidden">
                             <Image
                                 src={item.src}
                                 alt={item.name}

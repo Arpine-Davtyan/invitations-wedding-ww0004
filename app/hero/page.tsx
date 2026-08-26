@@ -59,7 +59,7 @@ const Hero = () => {
                 initial="hidden"
                 animate="visible"
                 onClick={scrollDown}
-                className="absolute bottom-12 cursor-pointer outline-0 animate-bounce"
+                className="absolute bottom-10 cursor-pointer outline-0 animate-bounce"
                 aria-label="Scroll down"
             >
                 <CaretDownIcon
