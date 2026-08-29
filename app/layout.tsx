@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jost.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${jost.variable} ${fraunces.variable} h-full antialiased hide-scrollbar`}
     >
       <body className="min-h-full flex flex-col">
         {children}
