@@ -1,9 +1,11 @@
+export const orderId = "8f819a34-2577-410d-8be8-25bf733965dd";
+
 export const weddingInfo = {
     name1: "Anne",
     name2: "Sam",
-    date: "14 · 09 · 26",
+    date: "14 · 11 · 26",
     location: "Villa Serena · Lake Como, Italy",
-    countdownDate: "2026-09-14T15:00:00",
+    countdownDate: "2026-11-14T15:00:00",
     audioUrl: "/music/wedding.mp3",
 };
 
